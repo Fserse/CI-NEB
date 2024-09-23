@@ -265,8 +265,8 @@ def plot_movie(X,Y,Z,pos_store,z_star_hist,length):
         y2 = line(x2)        
         ax[0].plot(pos_store[0,:,i],pos_store[1,:,i], color='black', marker='o', label='line with marker')
         cp=ax[0].contourf(x,y,Z,levels=range(0,50,1),cmap=new_cmap,antialiased=False,alpha=0.8)    
-        ax[0].set_ylim([-np.pi,np.pi])
-        ax[0].set_xlim([0,12])
+        ax[0].set_ylim([np.min(Y),np.max(Y)])
+        ax[0].set_xlim([np.min(X),np.max(X)])
         ax[0].set_ylabel('CV2',fontsize=11)
         ax[0].set_xlabel('CV1',fontsize=11)
         ax[0].set_title(' X-Y Path ')
@@ -473,7 +473,7 @@ def climbing_image(X,Y,Z,tspan,dt,mass,nreplica,k_el, indice_1, indice_2,spacing
     ax[1].set_xlim([1,nreplica])
     ax[1].set_xlabel('Reaction Coodinate', fontsize=11)
     ax[1].set_title('Minimum Free Energy Path [kJ/mol]')
- 
+    
     #plt.show()
-   
+    
     return  pos_store, z_star_hist, k
